@@ -1,6 +1,11 @@
 # Importante: No modificar ni el nombre ni los argumetos que reciben las funciones, sólo deben escribir
 # código dentro de las funciones ya definidas.
 
+from ast import Raise
+from math import factorial
+from pyparsing import null_debug_action
+
+
 def Factorial(numero):
     '''
     Esta función devuelve el factorial del número pasado como parámetro.
@@ -12,7 +17,28 @@ def Factorial(numero):
         Factorial(-2) debe retornar nulo
     '''
     #Tu código aca:
-    return 'Funcion incompleta'
+    # Método factorial de un número
+    try:
+        if numero == 1:
+            factorialNum = 1
+        elif (numero > 1):
+            # Si el elemento de la lista no es un entero arroja error
+            if not isinstance(numero, int):
+                factorialNum = None
+            else:
+                cont = 2
+                factorialNum = 1
+                while cont <= numero:
+                    factorialNum = factorialNum * cont
+                    cont += 1
+        else:
+            factorialNum = None
+    except TypeError:
+        factorialNum = None
+    return(factorialNum)
+
+print(Factorial(1))
+
 
 def EsPrimo(valor):
     '''
@@ -26,7 +52,22 @@ def EsPrimo(valor):
         EsPrimo(8) debe retornar False
     '''
     #Tu código aca:
-    return 'Funcion incompleta'
+    # Si no es un entero el elemento de la lista arroja un error
+    if not isinstance(valor, int):
+        isNumPrimos = None
+    else:
+        flatPrimo = 1
+        divisor = 2
+        while divisor <= round(abs(valor) / 2):
+            if abs(valor) % divisor == 0:
+                flatPrimo = 0
+                break
+            divisor += 1
+        if flatPrimo == 1 and valor != 0:
+            isNumPrimos = True # Indica que SI es primo 
+        else:
+            isNumPrimos = False # Indica que NO es primo
+    return(isNumPrimos)
     
 def ClaseAnimal(especie, color):
     '''
@@ -47,4 +88,16 @@ def ClaseAnimal(especie, color):
         a.CumpliAnios() -> debe devolver 3
     '''
     #Tu código aca:
-    return 'Funcion incompleta'
+    class Animal:
+        def __init__(self, especie, color):
+            self.especie = especie
+            self.color = color
+            self.edad = 0
+
+        # Definiendo el método 
+        def CumplirAnios(self):
+            self.edad += 1
+            return self.edad
+
+    animalTest = Animal(especie, color)  
+    return animalTest 
