@@ -75,7 +75,7 @@ print('El archivo tiene un tamaño de', str(round(os.path.getsize('clase09_ej3.c
 # 5) Crear una carpeta llamada clase09_montañas_altas
 
 # %%
-os.makedirs('clase09_montañas_altas')
+#os.makedirs('clase09_montañas_altas')
 
 # %% [markdown]
 # 6) Copiar el archivo clase09_ej3.scv en la carpeta clase09_montañas_altas usando la sentencia **os.system**
